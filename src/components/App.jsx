@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/global.scss';
+import '../styles/Global.scss';
+import { TodoTitle } from './TodoTitle';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
@@ -15,7 +16,8 @@ const todos = [
 
 const App = () => {
   return (
-    <React.Fragment>
+    <div className="TodoListContainer">
+      <TodoTitle />
       <TodoCounter />
       <TodoSearch />
       <TodoList>
@@ -24,7 +26,7 @@ const App = () => {
         ))}
       </TodoList>
       <CreateTodoButton />
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -1,0 +1,26 @@
+$base-color: #070d59;
+$input-color: #16213e;
+$action-color: #dddddd;
+$text-color: #aaaaaa;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Inconsolata', monospace;
+  font-size: 62.5%;
+  color: $text-color;
+}
+
+body {
+  background-color: $base-color;
+}
+
+.TodoListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

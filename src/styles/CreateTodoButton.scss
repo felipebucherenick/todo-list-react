@@ -1,0 +1,11 @@
+@import 'Global.scss';
+
+.CreateTodoButton {
+  background-color: $action-color;
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 50%;
+  font-size: 4.2rem;
+  color: $base-color;
+}
