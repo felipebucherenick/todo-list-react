@@ -3,30 +3,44 @@
 .TodoItem {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  border: 2px solid $text-color;
-  border-radius: 0.5rem;
-  padding: 2rem 1rem;
+  align-items: center;
   margin-bottom: 2rem;
+  padding: 2rem 1rem;
+  border: 2px solid $text-color;
+  border-radius: 0.8rem;
 }
 
 .TodoItem img {
   width: 32px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.TodoItem img:hover {
+  transform: scale(1.15);
 }
 
 .TodoItem__check {
   margin-right: 1rem;
+  filter: grayscale(100%);
+}
+.TodoItem__check--completed {
+  filter: none;
+}
+
+.TodoItem__text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: $text-color;
+}
+
+.TodoItem__text--completed {
+  text-decoration: line-through;
 }
 
 .TodoItem__close {
   position: absolute;
   right: 20px;
   top: -16px;
-}
-
-.TodoItem p {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: $text-color;
 }
