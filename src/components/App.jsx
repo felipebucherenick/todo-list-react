@@ -12,7 +12,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
  */
 
 const App = () => {
-  const [todos, setTodos] = useLocalStorage('TODOS_V1', []);
+  const { item: todos, saveItem: setTodos, loading, error } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const totalTodos = todos.length;
@@ -46,6 +46,8 @@ const App = () => {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTodos={totalTodos}
       completedTodos={completedTodos}
       searchedTodos={searchedTodos}
