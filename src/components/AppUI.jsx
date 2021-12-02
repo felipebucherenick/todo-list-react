@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { TodoTitle } from './TodoTitle';
 import { TodoCounter } from './TodoCounter';
@@ -6,25 +6,18 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import { TodoContext } from './TodoContext';
 
 import '../styles/Global.scss';
 
-const AppUI = ({
-  totalTodos,
-  completedTodos,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-  searchValue,
-  setSearchValue,
-  loading,
-  error,
-}) => {
+const AppUI = () => {
+  const { error, loading, searchedTodos, completeTodo, deleteTodo } = useContext(TodoContext);
   return (
     <div className="TodoListContainer">
       <TodoTitle />
-      <TodoCounter total={totalTodos} completed={completedTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoCounter />
+      <TodoSearch />
+
       <TodoList>
         {error && <p>Hubo un error</p>}
         {loading && <p>Estamos cargando .....</p>}
@@ -40,6 +33,7 @@ const AppUI = ({
           />
         ))}
       </TodoList>
+
       <CreateTodoButton />
     </div>
   );
