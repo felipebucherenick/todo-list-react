@@ -1,0 +1,69 @@
+@import './Global.scss';
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  height: 400px;
+  background-color: $base-color;
+  border: 2px solid $text-color;
+  border-radius: 0.8rem;
+}
+
+.TodoForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TodoForm__title {
+  font-size: 3.2rem;
+  margin: 20px 0;
+}
+
+.TodoForm__input {
+  width: 100%;
+  height: 160px;
+  border-radius: 0.8rem;
+  padding: 2rem 3rem;
+  border: none;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: $input-color;
+  outline: none;
+  margin: 20px 0;
+  color: $text-color;
+}
+
+.TodoForm__buttons-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.TodoForm__button {
+  width: 98px;
+  height: 40px;
+  border-radius: 0.8rem;
+  outline: none;
+  border: none;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: $base-color;
+  border: 2px solid $text-color;
+  color: $action-color;
+  cursor: pointer;
+}
+
+.TodoForm__button--cancel {
+}
+
+.TodoForm__button--add {
+  background-color: $action-color;
+  border: 2px solid green;
+  color: green;
+}

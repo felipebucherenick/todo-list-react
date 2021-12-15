@@ -7,11 +7,22 @@ import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import { TodoContext } from './TodoContext';
+import { Modal } from './Modal';
+import { TodoForm } from './TodoForm';
 
 import '../styles/Global.scss';
 
 const AppUI = () => {
-  const { error, loading, searchedTodos, completeTodo, deleteTodo } = useContext(TodoContext);
+  const {
+    error,
+    loading,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    addTodo,
+  } = useContext(TodoContext);
   return (
     <div className="TodoListContainer">
       <TodoTitle />
@@ -34,7 +45,13 @@ const AppUI = () => {
         ))}
       </TodoList>
 
-      <CreateTodoButton />
+      {openModal && (
+        <Modal>
+          <TodoForm setOpenModal={setOpenModal} addTodo={addTodo} />
+        </Modal>
+      )}
+
+      <CreateTodoButton setOpenModal={setOpenModal} />
     </div>
   );
 };
