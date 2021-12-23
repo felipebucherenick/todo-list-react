@@ -36,12 +36,18 @@ const App = () => {
       <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
-      <TodoList>
-        {error && <TodosError error={error} />}
-        {loading && <TodosLoading />}
-        {!loading && !searchedTodos.length && <TodosEmpty />}
-
-        {searchedTodos.map((todo) => (
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchText={searchValue}
+        onError={() => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onTodosEmpty={() => <TodosEmpty />}
+        onEmptySearchResults={(searchText) => <p>No hay resultados para {searchText}</p>}
+      >
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -49,7 +55,7 @@ const App = () => {
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
-        ))}
+        )}
       </TodoList>
 
       {openModal && (
