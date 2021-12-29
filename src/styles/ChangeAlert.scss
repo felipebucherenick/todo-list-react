@@ -1,0 +1,49 @@
+@import './Global.scss';
+
+.ChangeAlert-container {
+  background: rgba(32, 35, 41, 0.8);
+  position: fixed;
+  top: -10px;
+  bottom: -10px;
+  right: -10px;
+  left: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ChangeAlert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 240px;
+  padding: 2rem;
+  background-color: $action-color;
+  z-index: 1;
+}
+
+.ChangeAlert p {
+  color: $base-color;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.ChangeAlert__button {
+  width: 98px;
+  height: 40px;
+  margin-top: 20px;
+  border-radius: 0.8rem;
+  outline: none;
+  border: none;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: $base-color;
+  color: $action-color;
+  cursor: pointer;
+}

@@ -12,6 +12,7 @@ import { TodoForm } from './TodoForm';
 import { TodosError } from './TodosError';
 import { TodosLoading } from './TodosLoading';
 import { TodosEmpty } from './TodosEmpty';
+import { ChangeAlertWithStorageListener } from './ChangeAlert';
 
 import '../styles/Global.scss';
 
@@ -29,12 +30,13 @@ const App = () => {
     setSearchValue,
     totalTodos,
     completedTodos,
+    sincronizeTodos,
   } = useTodos();
   return (
     <div className="TodoListContainer">
       <TodoTitle />
-      <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} loading={loading} />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading} />
 
       <TodoList
         error={error}
@@ -63,7 +65,7 @@ const App = () => {
           <TodoForm setOpenModal={setOpenModal} addTodo={addTodo} />
         </Modal>
       )}
-
+      <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
       <CreateTodoButton setOpenModal={setOpenModal} />
     </div>
   );
