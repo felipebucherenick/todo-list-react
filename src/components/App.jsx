@@ -32,6 +32,7 @@ const App = () => {
     completedTodos,
     sincronizeTodos,
   } = useTodos();
+
   return (
     <div className="TodoListContainer">
       <TodoTitle />

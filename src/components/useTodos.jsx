@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useLocalStorageReducer } from '../hooks/useLocalStorageReducer';
 
 const useTodos = () => {
   const {
@@ -8,7 +8,7 @@ const useTodos = () => {
     sincronizeItem: sincronizeTodos,
     loading,
     error,
-  } = useLocalStorage('TODOS_V1', []);
+  } = useLocalStorageReducer('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
 
